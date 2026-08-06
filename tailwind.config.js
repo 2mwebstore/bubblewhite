@@ -1,0 +1,26 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        cream: "#FAF8F5",
+        "cream-dark": "#F2EEE8",
+        ink: "#121110",
+        charcoal: "#232019",
+        rust: "#B9794F",
+        gold: "#F0A93C",
+        muted: "#8B8378",
+        line: "#E9E4D9",
+      },
+      fontFamily: {
+        sans: ["Manrope", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+      },
+      borderRadius: {
+        card: "10px",
+      },
+    },
+  },
+  plugins: [],
+};

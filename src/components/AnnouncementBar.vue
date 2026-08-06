@@ -1,0 +1,19 @@
+<template>
+  <div class="bg-ink text-cream text-xs">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4">
+      <p class="hidden sm:flex items-center gap-1.5 opacity-90">
+        <Truck :size="14" :stroke-width="1.5" class="shrink-0" />
+        Free shipping on orders over $50
+      </p>
+      <p class="flex-1 sm:flex-none text-center font-medium">New Collection — Summer 2026 is here</p>
+      <div class="hidden sm:flex items-center gap-4 opacity-90">
+        <RouterLink to="/contact" class="hover:opacity-70">Help Center</RouterLink>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+import { Truck } from 'lucide-vue-next'
+</script>
