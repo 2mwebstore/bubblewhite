@@ -8,8 +8,8 @@
 
       <div class="aspect-[3/4] bg-cream-dark flex items-center justify-center overflow-hidden">
         <img
-          v-if="product.image"
-          :src="product.image"
+          v-if="thumbnail"
+          :src="thumbnail"
           :alt="product.name"
           class="w-full h-full object-cover"
           style="object-position: 65% center"
@@ -30,10 +30,13 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProductGlyph from './ProductGlyph.vue'
 
-defineProps({
+const props = defineProps({
   product: { type: Object, required: true },
 })
+
+const thumbnail = computed(() => props.product.images?.[0] ?? null)
 </script>

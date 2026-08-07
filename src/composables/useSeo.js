@@ -15,7 +15,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`
  * @param {Object} [opts.jsonLd] - structured data object to inject as JSON-LD
  */
 export function useSeo({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website', jsonLd = null }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Minimal Style, Maximum Comfort`
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — សម្លៀកបំពាក់សាមញ្ញ សុខស្រួលអតិបរមា`
   const url = `${SITE_URL}${path}`
 
   const script = []

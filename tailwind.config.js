@@ -14,8 +14,8 @@ export default {
         line: "#E9E4D9",
       },
       fontFamily: {
-        sans: ["Manrope", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        sans: ["Kantumruy Pro", "Manrope", "sans-serif"],
+        body: ["Kantumruy Pro", "sans-serif"],
       },
       borderRadius: {
         card: "10px",

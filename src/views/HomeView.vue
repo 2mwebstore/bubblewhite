@@ -8,7 +8,7 @@
           :loop="heroSlides.length > 1"
           :autoplay="{ delay: 4500, disableOnInteraction: false }"
           :pagination="{ clickable: true }"
-          class="aspect-[16/9] md:aspect-[21/9]"
+          class="w-full h-auto"
         >
           <SwiperSlide v-for="(slide, i) in heroSlides" :key="i">
             <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover" />
@@ -26,7 +26,7 @@
           </div>
           <div>
             <p class="text-sm font-semibold">{{ cat.name }}</p>
-            <span class="text-xs text-rust inline-flex items-center gap-1">Shop Now →</span>
+            <span class="text-xs text-rust inline-flex items-center gap-1">ទិញឥឡូវ →</span>
           </div>
         </RouterLink>
       </div>
@@ -35,8 +35,8 @@
     <!-- Best selling -->
     <section class="max-w-7xl mx-auto px-6 py-16">
       <div class="flex items-end justify-between mb-8" data-aos="fade-up">
-        <h2 class="font-sans font-bold text-2xl">Best Selling</h2>
-        <RouterLink to="/shop" class="text-sm font-medium text-rust hover:underline">View All →</RouterLink>
+        <h2 class="font-sans font-bold text-2xl">លក់ដាច់ជាងគេ</h2>
+        <RouterLink to="/shop" class="text-sm font-medium text-rust hover:underline">មើលទាំងអស់ →</RouterLink>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <div v-for="(p, i) in bestSelling" :key="p.id" data-aos="fade-up" :data-aos-delay="(i % 5) * 80">
@@ -65,13 +65,13 @@
       <div class="mx-auto grid max-w-[1500px] items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-[.7fr_1.6fr_.7fr] lg:px-10">
         <img class="hidden h-36 w-full rounded-2xl object-cover md:block" src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&amp;fit=crop&amp;w=700&amp;q=80" data-aos="fade-right">
         <div class="text-center" data-aos="zoom-in">
-          <h2 class="text-2xl font-semibold">Join the Bubble White Club</h2>
-          <p class="mt-2 text-sm text-black/55">Get 10% off your first order and receive new collection updates.</p>
+          <h2 class="text-2xl font-semibold">ចូលរួម Bubble White Club</h2>
+          <p class="mt-2 text-sm text-black/55">ទទួលបានការបញ្ចុះតម្លៃ ១០% លើការបញ្ជាទិញដំបូង និងព័ត៌មានផលិតផលថ្មីៗ។</p>
           <form id="newsletter" class="mx-auto mt-5 flex max-w-xl flex-col gap-2 sm:flex-row" @submit.prevent="subscribe">
-            <input  id="newsletter-email" required v-model="email" type="email" placeholder="Enter your email address" class="input-field">
-            <button class="h-12 rounded-md bg-black px-8 text-sm font-medium text-white">Subscribe</button>
+            <input  id="newsletter-email" required v-model="email" type="email" placeholder="បញ្ចូលអ៊ីមែលរបស់អ្នក" class="input-field">
+            <button class="h-12 rounded-md bg-black px-8 text-sm font-medium text-white">ជាវឥឡូវ</button>
           </form>
-          <p v-if="subscribed" id="subMsg" class="mt-3 text-sm text-rust">Thanks for subscribing!</p>
+          <p v-if="subscribed" id="subMsg" class="mt-3 text-sm text-rust">សូមអរគុណសម្រាប់ការជាវ!</p>
         </div>
         <img class="hidden h-36 w-full rounded-2xl object-cover md:block" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&amp;fit=crop&amp;w=700&amp;q=80" data-aos="fade-left">
       </div>
@@ -83,7 +83,7 @@
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Truck, RotateCcw, ShieldCheck, Headset } from 'lucide-vue-next'
@@ -92,8 +92,8 @@ import { products, categories } from '../data/products'
 import { useSeo, SITE_URL } from '../composables/useSeo'
 
 useSeo({
-  title: 'Minimal Style, Maximum Comfort',
-  description: 'Shop Bubble White — minimal, comfortable everyday essentials made in Phnom Penh. Tees, hoodies, sweatshirts and accessories, designed to keep you simple and confident.',
+  title: 'សម្លៀកបំពាក់សាមញ្ញ សុខស្រួលអតិបរមា',
+  description: 'ទិញទំនិញ Bubble White — សម្លៀកបំពាក់ប្រចាំថ្ងៃដ៏សាមញ្ញ និងសុខស្រួល ផលិតនៅភ្នំពេញ។ អាវយឺត អាវហ៊ូឌី និងគ្រឿងបន្លាស់ រចនាឡើងសម្រាប់ភាពសាមញ្ញ និងទំនុកចិត្ត។',
   path: '/',
   jsonLd: {
     '@context': 'https://schema.org',
@@ -105,19 +105,18 @@ useSeo({
 })
 
 const heroSlides = [
-  { image: '/banners/home-banner.png', alt: 'Bubble White — Minimal style, maximum comfort' },
-  { image: '/banners/home-banner.png', alt: 'Bubble White new collection' },
-  { image: '/banners/home-banner.png', alt: 'Bubble White essentials' },
+  { image: '/banners/home-banner-1.png', alt: 'Bubble White — Minimal style, maximum comfort' },
+  { image: '/banners/home-banner-2.png', alt: 'Bubble White new collection' },
 ]
 // Add or remove entries above to change the number of slides — Swiper loops automatically once there are 2+.
 
 const bestSelling = computed(() => products.slice(0, 10))
 
 const features = [
-  { title: 'Free Shipping', desc: 'On orders over $50', icon: Truck },
-  { title: 'Easy Returns', desc: '30 days return', icon: RotateCcw },
-  { title: 'Secure Payment', desc: '100% secure payment', icon: ShieldCheck },
-  { title: '24/7 Support', desc: 'We\u2019re here to help', icon: Headset },
+  { title: 'ដឹកជញ្ជូនឥតគិតថ្លៃ', desc: 'លើការបញ្ជាទិញលើសពី $50', icon: Truck },
+  { title: 'ងាយស្រួលប្តូរ', desc: 'ក្នុងរយៈពេល ៣០ ថ្ងៃ', icon: RotateCcw },
+  { title: 'ការទូទាត់សុវត្ថិភាព', desc: 'សុវត្ថិភាព ១០០%', icon: ShieldCheck },
+  { title: 'ជំនួយ ២៤/៧', desc: 'យើងនៅទីនេះដើម្បីជួយ', icon: Headset },
 ]
 
 const email = ref('')

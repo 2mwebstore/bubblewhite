@@ -5,19 +5,19 @@
     <div class="flex flex-col md:flex-row gap-10">
       <!-- Sidebar -->
       <aside class="w-full md:w-56 flex-shrink-0 space-y-8" data-aos="fade-right">
-          <h1 class="font-sans font-bold text-4xl mb-3">Shop</h1>
+          <h1 class="font-sans font-bold text-4xl mb-3">ទំនិញ</h1>
         <div>
-          <p class="text-xs tracking-widest uppercase font-semibold mb-3">Search</p>
-          <input v-model="filters.search" type="search" placeholder="Search…" class="input-field text-sm" />
+          <p class="text-xs tracking-widest uppercase font-semibold mb-3">ស្វែងរក</p>
+          <input v-model="filters.search" type="search" placeholder="ស្វែងរក…" class="input-field text-sm" />
         </div>
 
         <div>
-          <p class="text-xs tracking-widest uppercase font-semibold mb-3">Category</p>
+          <p class="text-xs tracking-widest uppercase font-semibold mb-3">ប្រភេទ</p>
           <ul class="space-y-2">
             <li>
               <button type="button" @click="filters.category = ''"
                 :class="!filters.category ? 'text-rust font-medium' : 'text-ink/70 hover:text-ink'"
-                class="text-sm transition-colors">All</button>
+                class="text-sm transition-colors">ទាំងអស់</button>
             </li>
             <li v-for="cat in categories" :key="cat.id">
               <button type="button" @click="filters.category = cat.slug"
@@ -28,25 +28,24 @@
         </div>
 
         <div>
-          <p class="text-xs tracking-widest uppercase font-semibold mb-3">Max Price</p>
+          <p class="text-xs tracking-widest uppercase font-semibold mb-3">តម្លៃអតិបរមា</p>
           <input v-model.number="filters.maxPrice" type="range" min="10" max="60" step="1" class="w-full accent-ink" />
-          <p class="text-xs text-muted mt-1">Up to ${{ filters.maxPrice }}</p>
+          <p class="text-xs text-muted mt-1">រហូតដល់ ${{ filters.maxPrice }}</p>
         </div>
 
-        <button type="button" class="text-xs text-rust hover:underline" @click="resetFilters">Clear filters</button>
+        <button type="button" class="text-xs text-rust hover:underline" @click="resetFilters">សម្អាតតម្រង</button>
       </aside>
 
       <!-- Grid -->
       <div class="flex-1">
           <!-- <span class="section-label mb-2">Shop All Products</span>  -->
-          <h1 class="font-sans font-bold text-4xl mb-3"> All Products</h1>
+          <h1 class="font-sans font-bold text-4xl mb-3"> ផលិតផលទាំងអស់</h1>
         <!-- <div class="flex items-center justify-between mb-6">
           <p class="text-sm text-muted">{{ filtered.length }} products</p>
           <select v-model="sortBy" class="input-field text-sm w-auto py-2">
             <option value="featured">Featured</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
-            <option value="rating">Top Rated</option>
           </select>
         </div> -->
 
@@ -56,9 +55,9 @@
           </div>
         </div>
         <div v-else class="text-center py-20 border border-dashed border-line rounded-card">
-          <p class="font-medium mb-1">No products match your filters</p>
-          <p class="text-sm text-muted mb-4">Try widening your search or clearing filters.</p>
-          <button type="button" class="btn-secondary" @click="resetFilters">Clear filters</button>
+          <p class="font-medium mb-1">មិនមានផលិតផលត្រូវនឹងតម្រងរបស់អ្នកទេ</p>
+          <p class="text-sm text-muted mb-4">សូមពង្រីកការស្វែងរក ឬសម្អាតតម្រង។</p>
+          <button type="button" class="btn-secondary" @click="resetFilters">សម្អាតតម្រង</button>
         </div>
 
         <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-12">
@@ -82,8 +81,8 @@ import { products, categories } from '../data/products'
 import { useSeo } from '../composables/useSeo'
 
 useSeo({
-  title: 'Shop All Products',
-  description: 'Browse Bubble White\u2019s full collection of minimal tees, hoodies, sweatshirts and accessories for men and women.',
+  title: 'ផលិតផលទាំងអស់',
+  description: 'ស្វែងរកកម្រងផលិតផលពេញលេញរបស់ Bubble White — អាវយឺត អាវហ៊ូឌី និងគ្រឿងបន្លាស់ សម្រាប់បុរស និងនារី។',
   path: '/shop',
 })
 
@@ -116,7 +115,6 @@ const filtered = computed(() => {
   }
   if (sortBy.value === 'price-asc') list = [...list].sort((a, b) => a.price - b.price)
   if (sortBy.value === 'price-desc') list = [...list].sort((a, b) => b.price - a.price)
-  if (sortBy.value === 'rating') list = [...list].sort((a, b) => b.rating - a.rating)
   return list
 })
 

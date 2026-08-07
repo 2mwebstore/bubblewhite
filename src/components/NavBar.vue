@@ -5,8 +5,8 @@
         <Menu :size="22" :stroke-width="1.8" />
       </button>
 
-      <RouterLink to="/" class="font-sans font-extrabold text-xl tracking-tight leading-none shrink-0">
-        bubble<span class="text-rust">.</span><span class="block text-[11px] font-medium tracking-[0.3em] -mt-0.5">white</span>
+      <RouterLink to="/" class="shrink-0" aria-label="Bubble White — ទំព័រដើម">
+        <img src="/logo.png" alt="Bubble White" class="h-10 md:h-14 w-auto" />
       </RouterLink>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -27,18 +27,18 @@
     <Transition name="fade">
       <div v-if="searchOpen" class="border-t border-line bg-cream">
         <form class="max-w-7xl mx-auto px-6 py-3" @submit.prevent="submitSearch">
-          <input v-model="searchQuery" type="search" placeholder="Search products…" class="input-field" autofocus />
+          <input v-model="searchQuery" type="search" placeholder="ស្វែងរកផលិតផល…" class="input-field" autofocus />
         </form>
       </div>
     </Transition>
 
     <!-- Mobile menu -->
     <Transition name="fade">
-      <div v-if="mobileOpen" class="fixed inset-0 z-[60] bg-ink/40 md:hidden" @click.self="mobileOpen = false">
+      <div v-if="mobileOpen" class="fixed inset-0 z-[60] bg-ink/40 md:hidden h-screen" @click.self="mobileOpen = false">
         <Transition name="slide">
           <div v-if="mobileOpen" class="absolute left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-cream p-6 flex flex-col gap-6 shadow-xl overflow-y-auto">
             <div class="flex items-center justify-between">
-              <span class="font-sans font-extrabold text-lg">bubble.white</span>
+              <img src="/logo.png" alt="Bubble White" class="h-6 w-auto" />
               <button aria-label="Close menu" class="p-1 -m-1" @click="mobileOpen = false">
                 <X :size="20" :stroke-width="1.8" />
               </button>
@@ -73,12 +73,12 @@ const searchOpen = ref(false)
 const searchQuery = ref('')
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/shop', label: 'Shop' },
-  { to: '/shop?category=men', label: 'Men' },
-  { to: '/shop?category=women', label: 'Women' },
-  { to: '/about', label: 'About Us' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', label: 'ទំព័រដើម' },
+  { to: '/shop', label: 'ទំនិញ' },
+  { to: '/shop?category=men', label: 'បុរស' },
+  { to: '/shop?category=women', label: 'នារី' },
+  { to: '/about', label: 'អំពីយើង' },
+  { to: '/contact', label: 'ទំនាក់ទំនង' },
 ]
 
 function isActive(to) {
