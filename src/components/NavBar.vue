@@ -1,10 +1,6 @@
 <template>
   <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-line">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-      <button class="md:hidden -ml-2 p-2" aria-label="Open menu" @click="mobileOpen = true">
-        <Menu :size="22" :stroke-width="1.8" />
-      </button>
-
       <RouterLink to="/" class="shrink-0" aria-label="Bubble White — ទំព័រដើម">
         <img src="/logo.png" alt="Bubble White" class="h-10 md:h-14 w-auto" />
       </RouterLink>
@@ -31,52 +27,23 @@
         </form>
       </div>
     </Transition>
-
-    <!-- Mobile menu -->
-    <Transition name="fade">
-      <div v-if="mobileOpen" class="fixed inset-0 z-[60] bg-ink/40 md:hidden h-screen" @click.self="mobileOpen = false">
-        <Transition name="slide">
-          <div v-if="mobileOpen" class="absolute left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-cream p-6 flex flex-col gap-6 shadow-xl overflow-y-auto">
-            <div class="flex items-center justify-between">
-              <img src="/logo.png" alt="Bubble White" class="h-6 w-auto" />
-              <button aria-label="Close menu" class="p-1 -m-1" @click="mobileOpen = false">
-                <X :size="20" :stroke-width="1.8" />
-              </button>
-            </div>
-            <nav class="flex flex-col gap-4 text-base font-medium">
-              <RouterLink
-                v-for="link in navLinks"
-                :key="link.to"
-                :to="link.to"
-                class="py-1"
-                :class="isActive(link.to) ? 'text-ink' : 'text-ink/70'"
-                @click="mobileOpen = false"
-              >{{ link.label }}</RouterLink>
-            </nav>
-          </div>
-        </Transition>
-      </div>
-    </Transition>
   </header>
 </template>
 
 <script setup>
-import { ref, watch, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
-import { Menu, X, Search } from 'lucide-vue-next'
+import { Search } from 'lucide-vue-next'
 
 const route = useRoute()
 const router = useRouter()
 
-const mobileOpen = ref(false)
 const searchOpen = ref(false)
 const searchQuery = ref('')
 
 const navLinks = [
   { to: '/', label: 'ទំព័រដើម' },
   { to: '/shop', label: 'ទំនិញ' },
-  { to: '/shop?category=men', label: 'បុរស' },
-  { to: '/shop?category=women', label: 'នារី' },
   { to: '/about', label: 'អំពីយើង' },
   { to: '/contact', label: 'ទំនាក់ទំនង' },
 ]
@@ -91,32 +58,9 @@ function submitSearch() {
   router.push({ path: '/shop', query: { q: searchQuery.value } })
   searchOpen.value = false
 }
-
-// Close the drawer whenever the route changes (e.g. browser back/forward).
-watch(() => route.fullPath, () => {
-  mobileOpen.value = false
-})
-
-// Prevent the page behind the drawer from scrolling while it's open, and
-// let Escape close it — both common expectations for a mobile nav drawer.
-watch(mobileOpen, (open) => {
-  document.documentElement.style.overflow = open ? 'hidden' : ''
-  if (open) searchOpen.value = false
-})
-
-function onKeydown(e) {
-  if (e.key === 'Escape') mobileOpen.value = false
-}
-if (typeof window !== 'undefined') {
-  window.addEventListener('keydown', onKeydown)
-  onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
-}
 </script>
 
 <style scoped>
 .fade-enter-active, .fade-leave-active { transition: opacity 0.15s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
-
-.slide-enter-active, .slide-leave-active { transition: transform 0.2s ease; }
-.slide-enter-from, .slide-leave-to { transform: translateX(-100%); }
 </style>

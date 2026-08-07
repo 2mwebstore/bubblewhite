@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-ink text-cream mt-24">
+  <footer class="bg-ink text-cream mt-24 pb-16 md:pb-0">
     <div class="max-w-7xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-5 gap-10">
       <div class="col-span-2">
         <p class="font-sans font-extrabold text-lg mb-3">bubble.white</p>

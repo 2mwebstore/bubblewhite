@@ -7,7 +7,7 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-6 pb-16 grid md:grid-cols-2 gap-12">
-      <div data-aos="fade-right">
+      <div data-aos="zoom-in-down">
         <h2 class="font-semibold text-lg mb-6">ទាក់ទងមកយើង</h2>
         <ul class="space-y-5 text-sm">
           <li class="flex items-start gap-3"><MapPin :size="18" :stroke-width="1.6" class="shrink-0 mt-0.5 text-rust" /><div><p class="font-medium">ទីតាំងរបស់យើង</p><p class="text-muted">ភ្នំពេញ, កម្ពុជា</p></div></li>
@@ -17,7 +17,7 @@
         </ul>
       </div>
 
-      <form class="space-y-4" data-aos="fade-left" @submit.prevent="submit">
+      <form class="space-y-4" data-aos="zoom-in-up" @submit.prevent="submit">
         <h2 class="font-semibold text-lg mb-2">ផ្ញើសារមកយើង</h2>
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
@@ -44,7 +44,7 @@
 
     <section class="bg-cream-dark border-t border-line">
       <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12 items-start">
-        <div class="md:col-span-2" data-aos="fade-right">
+        <div class="md:col-span-2" data-aos="zoom-in-down">
           <h2 class="font-sans font-bold text-2xl mb-6">សំណួរដែលសួរញឹកញាប់</h2>
           <div class="divide-y divide-line border-y border-line">
             <div v-for="(faq, i) in faqs" :key="faq.q">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        <div class="hidden md:block aspect-square card-surface overflow-hidden" data-aos="fade-left">
+        <div class="hidden md:block aspect-square card-surface overflow-hidden" data-aos="zoom-in-up">
           <img src="/banners/faq-flatlay.png" alt="អាវយឺត និងអាវហ៊ូឌី Bubble White បត់ជាប់" class="w-full h-full object-cover" />
         </div>
       </div>

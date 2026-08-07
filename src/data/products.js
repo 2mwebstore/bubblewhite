@@ -17,6 +17,7 @@ export const products = [
     compareAt: null,
     category: 't-shirts',
     badge: 'ថ្មី',
+    featured: false,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/1.jpg', '/products/1-2.jpg', '/products/1-3.jpg'],
     description: 'អាវយឺតប្រចាំថ្ងៃធ្វើពីកប្បាសក្រាស់ស្តើងសមរម្យ។ ស្មើមុត ទន់ភ្លន់ ទំហំធំល្មម និងស្លាកគំនូរដេរតូចមួយនៅទ្រូង។',
@@ -28,6 +29,7 @@ export const products = [
     compareAt: null,
     category: 'hoodies',
     badge: 'ថ្មី',
+    featured: true,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/2.jpg', '/products/2-2.jpg', '/products/2-3.jpg'],
     description: 'អាវហ៊ូឌីរោមកម្រាស់មធ្យម មានពាក់ក្បាលមានស្រទាប់ក្នុង ស្មាទម្លាក់ និងស្លាកគំនូរនៅទ្រូង។ សមស្របសម្រាប់ស្លៀកពាក់ប្រចាំថ្ងៃ។',
@@ -39,6 +41,7 @@ export const products = [
     compareAt: null,
     category: 't-shirts',
     badge: null,
+    featured: true,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/3.jpg', '/products/3-2.jpg', '/products/3-3.jpg'],
     description: 'ម៉ូតធំទូលាយ ស្មាទម្លាក់ និងគំនូរដិតធំនៅមុខអាវ។ ក្រណាត់បោកជាមុនឱ្យមានអារម្មណ៍ទន់ភ្លន់តាំងពីថ្ងៃដំបូង។',
@@ -50,6 +53,7 @@ export const products = [
     compareAt: 39.99,
     category: 'men',
     badge: '-10%',
+    featured: false,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/4.jpg', '/products/4-2.jpg', '/products/4-3.jpg'],
     description: 'អាវយឺតកក់ក្តៅក របូបខាងក្នុងទន់ភ្លន់។ សម្លៀកបំពាក់ចាំបាច់ដែលអាចផ្គូផ្គងជាមួយអ្វីៗគ្រប់យ៉ាង ចាប់ពីខោហាត់លំហាត់ រហូតដល់ខោបែបផ្លូវការ។',
@@ -61,6 +65,7 @@ export const products = [
     compareAt: null,
     category: 'accessories',
     badge: null,
+    featured: true,
     sizes: ['One Size'],
     images: ['/products/5.jpg', '/products/5-2.jpg'],
     description: 'មួកកាប់ប្រាំមួយផ្ទាំង រចនាឡើងមានទម្រង់រឹងមាំ ជាមួយស្លាកគំនូរដេរ និងខ្សែក្រវ៉ាត់ខាងក្រោយអាចលៃតម្រូវបាន។',
@@ -72,6 +77,7 @@ export const products = [
     compareAt: null,
     category: 'hoodies',
     badge: null,
+    featured: false,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/6.jpg', '/products/6-2.jpg', '/products/6-3.jpg'],
     description: 'អាវហ៊ូឌីរោមកម្រាស់មធ្យម មានពាក់ក្បាលមានស្រទាប់ក្នុង ស្មាទម្លាក់ និងស្លាកគំនូរនៅទ្រូង។ សមស្របសម្រាប់ស្លៀកពាក់ប្រចាំថ្ងៃ។',
@@ -83,6 +89,7 @@ export const products = [
     compareAt: null,
     category: 'women',
     badge: 'ថ្មី',
+    featured: true,
     sizes: ['XS', 'S', 'M', 'L'],
     images: ['/products/7.jpg', '/products/7-2.jpg', '/products/7-3.jpg'],
     description: 'អាវយឺតរចនាឡើងសមទ្រង់រាងកាយ ធ្វើពីកប្បាស Pima ទន់ភ្លន់ និងករបូបស្អាតស្អំ។',
@@ -94,6 +101,7 @@ export const products = [
     compareAt: null,
     category: 'men',
     badge: null,
+    featured: true,
     sizes: ['S', 'M', 'L', 'XL'],
     images: ['/products/8.jpg', '/products/8-2.jpg', '/products/8-3.jpg'],
     description: 'អាវយឺតកក់ក្តៅករគត់ស្អាត មានចង្កេះនិងជាយអាវជាប់ ធ្វើពីកប្បាសកម្រាស់មធ្យម។',
@@ -102,6 +110,10 @@ export const products = [
 
 export function getProductById(id) {
   return products.find((p) => p.id === id)
+}
+
+export function getFeaturedProducts(limit = 10) {
+  return products.filter((p) => p.featured).slice(0, limit)
 }
 
 export function getRelatedProducts(product, limit = 4) {

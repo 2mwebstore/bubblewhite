@@ -7,7 +7,7 @@
     </nav>
 
     <div class="grid md:grid-cols-2 gap-12">
-      <div data-aos="fade-right">
+      <div data-aos="zoom-in-down">
         <div class="aspect-square card-surface bg-cream-dark flex items-center justify-center overflow-hidden relative group">
           <button
             v-if="activeImage"
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div data-aos="fade-left">
+      <div data-aos="zoom-in-up">
         <h1 class="font-sans font-bold text-3xl mb-2">{{ product.name }}</h1>
         <div class="flex items-center gap-3 mb-6">
           <span class="text-2xl font-semibold">${{ product.price.toFixed(2) }}</span>

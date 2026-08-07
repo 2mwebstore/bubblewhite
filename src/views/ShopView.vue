@@ -4,7 +4,7 @@
 
     <div class="flex flex-col md:flex-row gap-10">
       <!-- Sidebar -->
-      <aside class="w-full md:w-56 flex-shrink-0 space-y-8" data-aos="fade-right">
+      <aside class="w-full md:w-56 flex-shrink-0 space-y-8" data-aos="zoom-in-down">
           <h1 class="font-sans font-bold text-4xl mb-3">ទំនិញ</h1>
         <div>
           <p class="text-xs tracking-widest uppercase font-semibold mb-3">ស្វែងរក</p>

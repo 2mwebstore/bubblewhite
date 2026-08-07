@@ -7,9 +7,10 @@
       <RouterView />
     </main>
     <SiteFooter />
+    <MobileTabBar />
 
     <Transition name="toast">
-      <div v-if="state.toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-ink text-cream text-sm px-5 py-3 rounded-full shadow-lg">
+      <div v-if="state.toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-ink text-cream text-sm px-5 py-3 rounded-full shadow-lg">
         {{ state.toast }}
       </div>
     </Transition>
@@ -21,6 +22,7 @@ import { RouterView } from 'vue-router'
 import AnnouncementBar from './components/AnnouncementBar.vue'
 import NavBar from './components/NavBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
+import MobileTabBar from './components/MobileTabBar.vue'
 import { useStore } from './composables/useStore'
 
 const { state } = useStore()
